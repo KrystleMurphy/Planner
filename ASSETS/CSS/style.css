@@ -26,9 +26,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000000;
 }
 
-.description {
+.text {
   white-space: pre-wrap;
 }
 
@@ -70,6 +71,9 @@ header {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  background-image: url("/images/floppy-disk-save-icon-28.jpeg");
+  background-size: 30px;
+  /* background-position: center; */
 }
 
 .saveBtn i:hover {
