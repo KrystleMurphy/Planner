@@ -29,7 +29,7 @@ header {
   color: #000000;
 }
 
-.text {
+.text .description {
   white-space: pre-wrap;
 }
 
