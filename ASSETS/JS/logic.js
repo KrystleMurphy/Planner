@@ -71,11 +71,14 @@ for (let i = 0; i < timeSlots.length; i++) {
     if (timeSlot.isBefore(currentTime)) {
         // Display green
         $("#" + timeSlots[i]).addClass("future");
+        console.log("future");
     } else if (timeSlot.isSame(currentTime, "hour")) {
         // Display red
         $("#" + timeSlots[i]).addClass("present");
+        console.log("present");
     } else {
         // Display grey
         $("#" + timeSlots[i]).addClass("past");
+        console.log("past");
     }
 }
