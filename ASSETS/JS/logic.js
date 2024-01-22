@@ -11,8 +11,8 @@ $(document).ready(function () {
     // console log to check today var and format
     console.log(dayjs().format("dddd, MMMM D"));
 
-// take text area entry - send to local storage - for every text area input - time and text area - time as key to ls. ONE CODE
-// localStorage.setItem('myCat', 'Tom')
+// take text area entry - send to local storage 
+// localStorage.setItem('key', 'value')
 $(".saveBtn").on("click", function(){
 
     var value = $(this).siblings(".description").val()
@@ -25,6 +25,22 @@ localStorage.setItem(time, value)
 // compare time on from sched to day.js - dynamic comparison - css past present and future - where are we in time - method to run multiple times - puff of color demo - apply timer
 // not a function - pool keys - get item - to display correctly in the right box.
 $("#hour-9 .description").val(localStorage.getItem("hour-9"))
+
+$("#hour-10 .description").val(localStorage.getItem("hour-10"))
+
+$("#hour-11 .description").val(localStorage.getItem("hour-11"))
+
+$("#hour-12 .description").val(localStorage.getItem("hour-12"))
+
+$("#hour-13 .description").val(localStorage.getItem("hour-13"))
+
+$("#hour-14 .description").val(localStorage.getItem("hour-14"))
+
+$("#hour-15 .description").val(localStorage.getItem("hour-15"))
+
+$("#hour-16 .description").val(localStorage.getItem("hour-16"))
+
+$("#hour-17 .description").val(localStorage.getItem("hour-17"))
 
 
 
