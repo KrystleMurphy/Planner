@@ -1,8 +1,9 @@
 
-// dayjs().hour()
 // conveinience var for the current day element
 var currentDayEL = $('#currentDay');
-
+// convienience var for the current hour using day.js
+var currentTime = dayjs().hour()
+// console.log(currentTime);
 
 // code to display on site
 $(document).ready(function () {
@@ -11,41 +12,70 @@ $(document).ready(function () {
     // console log to check today var and format
     console.log(dayjs().format("dddd, MMMM D"));
 
-// take text area entry - send to local storage 
-// localStorage.setItem('key', 'value')
-$(".saveBtn").on("click", function(){
+    // take text area entry - send to local storage 
+    // localStorage.setItem('key', 'value')
+    $(".saveBtn").on("click", function () {
 
-    var value = $(this).siblings(".description").val()
-    // attr to target the different IDs 
-var time = $(this).parent().attr("id")
-localStorage.setItem(time, value)
-}
-)
+        var value = $(this).siblings(".description").val()
+        // attr to target the different IDs 
+        var time = $(this).parent().attr("id")
+        localStorage.setItem(time, value)
+    }
+    )
 
-// compare time on from sched to day.js - dynamic comparison - css past present and future - where are we in time - method to run multiple times - puff of color demo - apply timer
-// not a function - pool keys - get item - to display correctly in the right box.
-$("#hour-9 .description").val(localStorage.getItem("hour-9"))
+    // retrive items from local storage and assign them to the correct text area using ID.
 
-$("#hour-10 .description").val(localStorage.getItem("hour-10"))
+    $("#hour-9 .description").val(localStorage.getItem("hour-9"))
 
-$("#hour-11 .description").val(localStorage.getItem("hour-11"))
+    $("#hour-10 .description").val(localStorage.getItem("hour-10"))
 
-$("#hour-12 .description").val(localStorage.getItem("hour-12"))
+    $("#hour-11 .description").val(localStorage.getItem("hour-11"))
 
-$("#hour-13 .description").val(localStorage.getItem("hour-13"))
+    $("#hour-12 .description").val(localStorage.getItem("hour-12"))
 
-$("#hour-14 .description").val(localStorage.getItem("hour-14"))
+    $("#hour-13 .description").val(localStorage.getItem("hour-13"))
 
-$("#hour-15 .description").val(localStorage.getItem("hour-15"))
+    $("#hour-14 .description").val(localStorage.getItem("hour-14"))
 
-$("#hour-16 .description").val(localStorage.getItem("hour-16"))
+    $("#hour-15 .description").val(localStorage.getItem("hour-15"))
 
-$("#hour-17 .description").val(localStorage.getItem("hour-17"))
+    $("#hour-16 .description").val(localStorage.getItem("hour-16"))
 
-
+    $("#hour-17 .description").val(localStorage.getItem("hour-17"))
 
 
 });
 
+
+// Time slots
+const timeSlots = [
+    "hour-9",
+    "hour-10",
+    "hour-11",
+    "hour-12",
+    "hour-13",
+    "hour-14",
+    "hour-15",
+    "hour-16",
+    "hour-17"
+];
+
+
 // for loop - iterate and compare to time
-// include timer outside of the function
+// Loop through each time slot
+for (let i = 0; i < timeSlots.length; i++) {
+    // Convert the time slot to a Day.js object
+    const timeSlot = dayjs(timeSlots[i], "hh");
+
+    // Compare the time slot to the current time
+    if (timeSlot.isBefore(currentTime)) {
+        // Display green
+        $("#" + timeSlots[i]).addClass("future");
+    } else if (timeSlot.isSame(currentTime, "hour")) {
+        // Display red
+        $("#" + timeSlots[i]).addClass("present");
+    } else {
+        // Display grey
+        $("#" + timeSlots[i]).addClass("past");
+    }
+}
